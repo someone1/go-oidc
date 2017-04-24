@@ -131,7 +131,7 @@ func (r *remoteKeySet) keysWithID(ctx context.Context, keyIDs []string) ([]jose.
 				// Use the remoteKeySet's context instead of the requests context
 				// because a re-sync is unique to the keys set and will span multiple
 				// requests.
-				inflightCtx.Cancel(r.updateKeys(r.ctx))
+				inflightCtx.Cancel(r.updateKeys(ctx))
 
 				r.mu.Lock()
 				defer r.mu.Unlock()
